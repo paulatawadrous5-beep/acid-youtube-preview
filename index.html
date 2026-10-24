@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>الجزء الأول: فرط الحموضة — شرائح 1-7 | أمراض الحمض</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f9f9f9;color:#0f0f0f;font-family:system-ui,"Segoe UI",Tahoma,sans-serif;line-height:1.8}
+header.top{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #e5e5e5;display:flex;gap:12px;align-items:center;padding:10px 16px}
+.logo{font-weight:800;font-size:1.15rem;white-space:nowrap}
+.logo span{color:#c00}
+header.top input{flex:1;max-width:560px;border:1px solid #ccc;border-radius:999px;padding:8px 16px;font:inherit}
+header.top input:focus{outline:2px solid #0b6e78}
+.wrap{max-width:1240px;margin:0 auto;padding:18px 16px 60px}
+.grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:20px;align-items:start}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.player{background:#000;border-radius:14px;overflow:hidden}
+.stage{position:relative;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(160deg,#0a2e34,#0e4048)}
+.stage .visual{position:absolute;inset:0}
+.stage img.photo{width:100%;height:100%;object-fit:cover;display:block}
+.stage.playing img.photo{animation:kenburns 16s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.1) translate(-1.2%,1.5%)}}
+.fadein{animation:fadein .8s ease both}
+@keyframes fadein{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.stage-top{position:absolute;top:0;right:0;left:0;display:flex;justify-content:space-between;padding:12px;z-index:3;pointer-events:none}
+.badge{background:rgba(0,0,0,.75);color:#ffe1a1;border-radius:999px;padding:3px 12px;font-size:.8rem;font-weight:700}
+.eq{display:none;gap:3px;align-items:flex-end;background:rgba(0,0,0,.75);border-radius:999px;padding:6px 10px}
+.stage.playing .eq{display:flex}
+.eq i{width:4px;background:#2fb3bf;border-radius:2px;animation:eq .9s ease-in-out infinite}
+.eq i:nth-child(2){height:16px;animation-delay:.15s}.eq i:nth-child(3){height:8px;animation-delay:.3s}.eq i:nth-child(4){height:13px;animation-delay:.45s}.eq i:nth-child(1),.eq i:nth-child(5){height:10px}
+@keyframes eq{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1.15)}}
+.stage-title{position:absolute;bottom:0;right:0;left:0;padding:44px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.55) 25%,rgba(0,0,0,.92));color:#fff;z-index:2}
+.stage-title h2{margin:0;font-size:clamp(1.05rem,3vw,1.5rem)}
+.overlay{margin:8px 0 0;font-size:clamp(1rem,3vw,1.5rem);font-weight:700;line-height:1.7;text-shadow:0 2px 10px rgba(0,0,0,.8);opacity:0;transform:translateY(6px);transition:opacity .5s,transform .5s}
+.stage.playing .overlay{opacity:1;transform:none}
+.overlay span.w{opacity:0;display:inline-block;animation:wordin .45s ease forwards}
+@keyframes wordin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.diagram{width:100%;height:100%;padding:56px 18px 76px;display:flex;flex-direction:column;justify-content:center;gap:12px;color:#eaf6f6}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.dchip{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:12px 14px;animation:fadein .5s ease both}
+.dchip b{color:#ffd98a}
+.controls{background:#fff;border:1px solid #e5e5e5;border-top:none;border-radius:0 0 14px 14px;padding:12px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.playbtn{width:54px;height:54px;border-radius:50%;border:none;background:#c00;color:#fff;font-size:1.3rem;cursor:pointer;flex:none}
+.cbtn{border:1px solid #ddd;background:#fff;border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;cursor:pointer}
+.cbtn:hover{border-color:#0b6e78;color:#0b6e78}
+input[type=range]{flex:1;min-width:140px;accent-color:#c00}
+.timebox{color:#606060;font-size:.9rem;direction:ltr;white-space:nowrap}
+h1.title{font-size:clamp(1.15rem,3.4vw,1.6rem);margin:16px 0 4px;line-height:1.4}
+.meta{color:#606060;margin:0 0 14px}
+.card{background:#fff;border:1px solid #e5e5e5;border-radius:14px;padding:16px 18px;margin-top:16px}
+.card h2{margin:0 0 8px;font-size:1.1rem}
+.points{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.points li{background:#f2f7f7;border-radius:10px;padding:9px 13px}
+.caption{white-space:pre-wrap}
+aside.playlist{background:#fff;border:1px solid #e5e5e5;border-radius:14px;padding:12px}
+aside.playlist h2{margin:4px 8px 12px;font-size:1.05rem}
+.srow{display:flex;gap:10px;align-items:center;width:100%;text-align:right;background:#fff;border:1.5px solid transparent;border-radius:12px;padding:9px 10px;font:inherit;color:inherit;cursor:pointer}
+.srow:hover{background:#f2f2f2}
+.srow.current{border-color:#e8930c;background:#fdf0da}
+.srow .n{width:30px;height:30px;flex:none;border-radius:50%;background:#0b6e78;color:#fff;display:grid;place-items:center;font-weight:700}
+.srow .st{font-weight:600;font-size:.95rem;line-height:1.5}
+.srow .sd{margin-inline-start:auto;color:#606060;font-size:.85rem;direction:ltr;flex:none}
+.soon{opacity:.55;cursor:not-allowed}
+.soon .n{background:#999}
+.note{color:#606060;font-size:.9rem;margin:12px 8px 4px}
+.en{direction:ltr;unicode-bidi:isolate}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="logo"><span>▶</span> أمراض الحمض</div>
+  <input id="search" type="search" placeholder="ابحث في مشاهد الجزء الأول…" aria-label="البحث في مشاهد الجزء الأول" />
+</header>
+<div class="wrap">
+  <div class="grid">
+    <main>
+      <div class="player" id="player">
+        <div class="stage" id="stage">
+          <div class="visual" id="visual"></div>
+          <div class="stage-top">
+            <span class="badge" id="stageBadge"></span>
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="badge" id="stageSrc"></span>
+          </div>
+          <div class="stage-title"><h2 id="stageTitle"></h2><p class="overlay" id="overlay"></p></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="playbtn" id="playBtn" aria-label="تشغيل أو إيقاف">▶</button>
+        <button class="cbtn" id="prevBtn">⏮ السابق</button>
+        <button class="cbtn" id="nextBtn">التالي ⏭</button>
+        <button class="cbtn" id="speedBtn">السرعة 1×</button>
+        <input type="range" id="seek" min="0" max="100" value="0" step="0.1" aria-label="شريط تقدم المشهد" />
+        <span class="timebox" id="timeBox">0:00 / 0:00</span>
+      </div>
+      <h1 class="title">الجزء الأول: فرط الحموضة — شرائح 1-7</h1>
+      <p class="meta">5 مشاهد • المدة الكلية 2:08 • الشرح بالعربي والمصطلحات الطبية بالإنجليزي كما وردت في الشرائح • الصور من البوربوينت نفسه</p>
+      <div class="card"><h2>نقاط المشهد الحالي</h2><ul class="points" id="points"></ul></div>
+      <div class="card"><h2>نص الشرح كاملًا (المشهد الحالي)</h2><p class="caption" id="captionText"></p></div>
+    </main>
+    <aside class="playlist" aria-label="قائمة تشغيل الجزء الأول">
+      <h2>قائمة تشغيل الجزء الأول</h2>
+      <div id="sceneRows"></div>
+      <p class="note">أجزاء قادمة — قريبًا (غير متاحة في هذه المعاينة):</p>
+      <button class="srow soon" disabled><span class="n">2</span><span class="st">الجزء الثاني: ارتجاع المريء — شرائح 8-15</span><span class="sd">قريبًا</span></button>
+      <button class="srow soon" disabled><span class="n">3</span><span class="st">الجزء الثالث: ارتجاع المريء — شرائح 16-31</span><span class="sd">قريبًا</span></button>
+      <button class="srow soon" disabled><span class="n">4</span><span class="st">الجزء الرابع: التهاب المريء والتهاب المعدة — شرائح 32-47</span><span class="sd">قريبًا</span></button>
+      <button class="srow soon" disabled><span class="n">5</span><span class="st">الجزء الخامس: القرحة الهضمية — شرائح 48-65</span><span class="sd">قريبًا</span></button>
+    </aside>
+  </div>
+</div>
+<audio id="audio" preload="metadata"></audio>
+<script>
+var SCENES=[
+{"t":"أهلاً بيك — هنبدأ من الأول","slides":"1–2","img":"image1.jpg","src":"صورة من الشريحة 1 — عنوان المحاضرة","audio":"audio/l1s1.mp3","dur":"0:27","say":"أهلاً بيك في شرح أمراض الحمض، أو الـ Acid Related Diseases. دي من أكتر مشاكل الجهاز الهضمي انتشارًا، وبتأثر على حياة المريض اليومية بالألم والحرقان واضطراب الأكل. في الدرس الأول هنعرف يعني إيه Hyperacidity أو زيادة حمض المعدة، وهنعرف أسبابها وأعراضها، وهنصنف أمراض الحمض حسب العضو اللي بتأثر عليه.","points":["Acid Related Diseases من أكتر مشاكل الجهاز الهضمي انتشارًا","النهاردة هنفهم: إيه هي زيادة الحمض؟ وأسبابها وأعراضها وتصنيفها"],"kind":"photo"},
+{"t":"يعني إيه Hyperacidity؟","slides":"3–5","img":"image2.jpg","src":"صورة من الشريحة 4 — المعدة والحرقان","audio":"audio/l1s2.mp3","dur":"0:26","say":"الـ Hyperacidity معناها إن المعدة بتفرز حمض أكتر من اللازم. المعدة في الطبيعي بتنتج الحمض عشان تساعد في هضم الأكل وتنشيط إنزيمات الهضم وقتل الميكروبات اللي بتنزل مع الأكل. لكن لما الحمض يزيد عن احتياج الهضم، الزيادة دي بتبدأ تهيّج وتجرح بطانة القناة الهضمية، رغم إن البطانة محمية أصلاً بالمخاط والبيكربونات.","points":["المعدة بتفرز حمض زيادة عن احتياج الهضم","الحمض الزيادة بيهيّج ويجرح بطانة القناة الهضمية"],"kind":"photo"},
+{"t":"أسباب زيادة الحمض","slides":"5","audio":"audio/l1s3.mp3","dur":"0:22","say":"أسباب الـ Hyperacidity أربعة رئيسية زي ما في الشريحة: أدوية معينة، ونمط حياة مليان ضغط وتوتر، والأكل الحار والمتبل، وحالات مرضية بتخلي المعدة تفرز حمض بكميات كبيرة جدًا ودي بنسميها Hypersecretory conditions. خلي بالك إن الأسباب دي ممكن تجتمع عند نفس المريض.","points":["Medications — أدوية معينة","Stressed lifestyle — ضغط وتوتر","Spicy foods — أكل حار ومتبل","Hypersecretory conditions — حالات مرضية بتزود الإفراز"],"kind":"chips"},
+{"t":"الأعراض Symptoms","slides":"6","audio":"audio/l1s4.mp3","dur":"0:25","say":"أعراض زيادة الحمض: ألم مفاجئ في المعدة، وقيء، وفقدان للشهية، وحرقان أو الـ Heartburn. ولو المشكلة اتسابت من غير علاج ممكن تسوء وتعمل مضاعفات زي عسر الهضم المزمن Chronic indigestion، وقرح المعدة Gastric ulcers. عشان كده فهم التصنيف اللي جاي مهم.","points":["Sudden stomach pain — ألم مفاجئ في المعدة","Vomiting — قيء","Loss of appetite — فقدان شهية","Heartburn — حرقان","Chronic indigestion & Gastric ulcers — مضاعفات لو اتسابت"],"kind":"chips"},
+{"t":"التصنيف Classification","slides":"7","audio":"audio/l1s5.mp3","dur":"0:28","say":"أمراض الحمض بتأثر على تلات أماكن: المريء أو الـ Esophagus، والمعدة، والاثنى عشر أو الـ Duodenum. وبتتقسم لأربع أمراض: ارتجاع المريء Gastroesophageal Reflux Disease أو الـ GERD، والتهاب المريء Esophagitis، والتهاب المعدة Gastritis، ومرض القرحة الهضمية Peptic Ulcer Disease. الأربعة دول هما دروسنا الجاية بالترتيب.","points":["الأمراض دي بتأثر على الـ Esophagus والمعدة والـ Duodenum","GERD — ارتجاع المريء","Esophagitis — التهاب المريء","Gastritis — التهاب المعدة","Peptic Ulcer Disease — القرحة الهضمية"],"kind":"chips"}
+];
+var cur=0, speeds=[1,1.25,1.5,2], speedIdx=0, playing=false;
+var audio=document.getElementById('audio'), stage=document.getElementById('stage'), visual=document.getElementById('visual');
+function fmt(s){ if(!isFinite(s)) return '0:00'; s=Math.floor(s); return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2); }
+function firstSentence(s){ var m=/[.؟!]/.exec(s); return m ? s.slice(0,m.index+1) : s; }
+function renderScene(){
+  var sc=SCENES[cur];
+  document.getElementById('stageBadge').textContent='الجزء الأول • مشهد '+(cur+1)+' من '+SCENES.length+' • شرائح '+sc.slides;
+  document.getElementById('stageSrc').textContent=sc.src || ('شرائح 1–7');
+  document.getElementById('stageTitle').textContent=sc.t;
+  document.getElementById('overlay').innerHTML=firstSentence(sc.say).split(/\s+/).map(function(w,i){ return '<span class="w" style="animation-delay:'+(i*0.22)+'s">'+w+'</span>'; }).join(' ');
+  if(sc.kind==='photo'){
+    visual.innerHTML='<img class="photo fadein" src="img/'+sc.img+'" alt="'+sc.t+'">';
+  } else {
+    visual.innerHTML='<div class="diagram fadein"><div class="dgrid">'+sc.points.map(function(p,i){ return '<div class="dchip" style="animation-delay:'+(i*0.15)+'s">'+p+'</div>'; }).join('')+'</div></div>';
+  }
+  document.getElementById('captionText').textContent=sc.say;
+  document.getElementById('points').innerHTML=sc.points.map(function(p){ return '<li>'+p+'</li>'; }).join('');
+  document.getElementById('sceneRows').innerHTML=SCENES.map(function(s,i){
+    return '<button class="srow'+(i===cur?' current':'')+'" data-s="'+i+'"><span class="n">'+(i+1)+'</span><span class="st">'+s.t+' <span style="color:#606060;font-weight:400">(شرائح '+s.slides+')</span></span><span class="sd">'+s.dur+'</span></button>';
+  }).join('');
+  Array.prototype.forEach.call(document.querySelectorAll('#sceneRows .srow'),function(b){
+    b.addEventListener('click',function(){ loadScene(+b.getAttribute('data-s'),true); });
+  });
+  document.getElementById('timeBox').textContent='0:00 / '+sc.dur;
+  document.getElementById('seek').value=0;
+}
+function loadScene(idx,autoplay){
+  cur=idx; audio.src=SCENES[cur].audio; audio.playbackRate=speeds[speedIdx]; renderScene();
+  if(autoplay){ audio.play().catch(function(){}); }
+}
+document.getElementById('playBtn').addEventListener('click',function(){ if(audio.paused){ audio.play().catch(function(){}); } else { audio.pause(); } });
+document.getElementById('prevBtn').addEventListener('click',function(){
+  if(audio.currentTime>3){ audio.currentTime=0; return; }
+  if(cur>0) loadScene(cur-1,playing);
+});
+document.getElementById('nextBtn').addEventListener('click',function(){ if(cur<SCENES.length-1) loadScene(cur+1,playing); });
+document.getElementById('speedBtn').addEventListener('click',function(){
+  speedIdx=(speedIdx+1)%speeds.length; audio.playbackRate=speeds[speedIdx];
+  this.textContent='السرعة '+speeds[speedIdx]+'×';
+});
+document.getElementById('seek').addEventListener('input',function(){
+  if(audio.duration && isFinite(audio.duration)) audio.currentTime=(this.value/100)*audio.duration;
+});
+audio.addEventListener('play',function(){ playing=true; document.getElementById('playBtn').textContent='⏸'; stage.classList.add('playing'); });
+audio.addEventListener('pause',function(){ playing=false; document.getElementById('playBtn').textContent='▶'; stage.classList.remove('playing'); });
+audio.addEventListener('timeupdate',function(){
+  document.getElementById('timeBox').textContent=fmt(audio.currentTime)+' / '+fmt(audio.duration);
+  if(audio.duration && isFinite(audio.duration)) document.getElementById('seek').value=(audio.currentTime/audio.duration)*100;
+});
+audio.addEventListener('ended',function(){
+  if(cur<SCENES.length-1) loadScene(cur+1,true);
+  else { playing=false; document.getElementById('playBtn').textContent='▶'; stage.classList.remove('playing'); }
+});
+document.getElementById('search').addEventListener('input',function(){
+  var q=this.value.trim();
+  Array.prototype.forEach.call(document.querySelectorAll('#sceneRows .srow'),function(b,i){
+    b.style.display=(!q || SCENES[i].t.indexOf(q)>-1 || SCENES[i].say.indexOf(q)>-1) ? '' : 'none';
+  });
+});
+loadScene(0,false);
+</script>
+</body>
+</html>
